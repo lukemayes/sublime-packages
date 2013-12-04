@@ -1,3 +1,8 @@
+/*
+ * For source of mvn_parent_pom.sh, see:
+ * https://github.com/lukemayes/sublime-packages/blob/master/mvn_parent_pom.sh
+ */
+
 {
     "cmd": [
                 "/Users/lmayes/bin/mvn_parent_pom.sh",
@@ -36,9 +41,12 @@
                         "-Dpmd.skip=true",
                         "-DfailIfNoTests=false",
                         /*
-                         * Append 'Test' if it's not already there (to run corresponding test file for a given class).
-                         * This allows you to run tests for a given test file (BookingControllerTest.java) but also a
-                         * source file that has a corresponding test (BookingController.java).
+                         * Append 'Test' if it's not already there (to run
+                         * corresponding test file for a given class). This
+                         * allows you to run tests for a given test file
+                         * (HomeControllerTest.java) but also a source file
+                         * that has a corresponding test
+                         * (HomeController.java).
                          */
                         "-Dtest=${file_base_name/Test//}Test",
                         "test"
@@ -58,33 +66,3 @@
         }
     ]
 }
-
-/*
- * Source of mvn_parent_pom.sh provided inline for reference.
- *
- *
- *    #!/bin/bash
- *
- *    #====================================================================
- *    #== Finds the first parent directory with a pom.xml and changes to
- *    #== it. After changing to the correct directory, it calls mvn (maven)
- *    #== passing any arguments that were given to the script.
- *    #== 
- *    #== Thanks to http://unix.stackexchange.com/users/4194/arcege and his
- *    #== answer (http://unix.stackexchange.com/a/29033) for the head
- *    #== start.
- *    #====================================================================
- *
- *    owd=$PWD
- *    cwd=$PWD
- *
- *    while [ ! -e "$cwd/pom.xml" ] && [ "x$cwd" != x/ ]; do
- *        cwd=`dirname "$cwd"`
- *    done
- *
- *    cd "$cwd"
- *
- *    mvn $*
- *
- *    cd $owd
- */
