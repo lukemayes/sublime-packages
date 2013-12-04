@@ -1,0 +1,14 @@
+{
+	"installed_packages":
+	[
+		"Dust.js",
+		"fish-shell",
+		"FreeMarker",
+		"SideBarEnhancements",
+		"sublimetext_indentxml"
+	],
+	"repositories":
+	[
+		"https://github.com/alek-sys/sublimetext_indentxml"
+	]
+}
